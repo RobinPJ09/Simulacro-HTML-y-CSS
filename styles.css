@@ -1,0 +1,746 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonts */
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+/* Root */
+
+:root {
+    /* Colors */
+    --color-primary: #4845D2;
+    --color-secondary: #ff5a5f;
+    --color-text: #333;
+    --color-text-light: #f4f4f4;
+    /* Fonts */
+    --font-primary: "Lato", sans-serif;
+    --font-secondary: "Roboto", sans-serif;
+    /* Spaces */
+    --space-xxs: 5px;
+    --space-xs: 10px;
+    --space-sm: 15px;
+    --space-md: 20px;
+    --space-lg: 30px;
+    --space-xl: 40px;
+    /* Box Shadows */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Border-radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 12px;
+}
+
+/* Globals */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary);
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout */
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+/* Utilities */
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+/* Write your CSS code here */
+
+/*Contenedor Padre de la pagina*/
+.cont-principal{
+    border: 1px solid black;
+    max-width: 1200px;
+    line-height: 5vh;
+    text-align: center;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:"header"
+                        "section"
+                        "main"
+                        "gallery"
+                        "contest"
+                        "footer";
+}
+
+/*Fin contenedor padre*/
+
+/*Seccion CSS donde se encuentra el banner, nav, header y titulos de la pagina*/
+
+.header{
+    grid-area: header;
+    border: 1px solid black;
+}
+
+.superior{
+    margin-top: 10px;
+    width: 1200px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:"logo menu login"
+                        "banner banner banner";
+}
+
+.logo{
+    grid-area: logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 100%;
+}
+
+.logo img{
+    opacity: 100% !important;
+}
+
+.menu{
+    grid-area: menu;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.menuul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu li{
+    list-style: none;
+    margin: 0 20px;
+    color: white;
+}
+
+.login{
+    grid-area: login;
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
+    align-items: center;
+    color: white;
+    z-index: 2;
+}
+
+.loginlo{
+    padding: 0px 30px 0px 30px;
+    margin: 1;
+    background-color: #4845D2;
+    border-radius: 20%;
+}
+
+
+.banner{
+    grid-area: banner;
+    z-index: 1;
+    background-color: black;
+}
+
+.banner img{
+    position: relative;
+    z-index: 1;
+    opacity: 70%;
+}
+
+.banner p{
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    width: 1000px;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: var(--font-primary);
+    z-index: 2;
+}
+
+.linea{
+    position: absolute;
+    top: 36%;
+    left: 20%;
+    height: 1px;
+    color: white;
+    padding: 0;
+    width: 800px;
+}
+
+.banner h1{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 1000px;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: var(--font-primary);
+    z-index: 2;
+}
+
+.banner span{
+    color: #4845D2;
+}
+
+.boton{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 0px 10px 0px 10px;
+    border-radius: 10%;
+    border: 2px solid white;
+}
+
+.banner a{
+    color: white;
+} 
+
+/*Fin del la seccion del banner*/
+
+/*Seccion de la pagina donde se encuentran 3 imagenes de forma horizontal*/
+
+.section{
+    grid-area: section;
+    display: grid;
+    margin-right: 45px;
+    margin-left: 45px;
+    margin-bottom: 60px;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "imagen1 imagen2 imagen3";
+}
+
+.imagen1{
+    height: 100%;
+    width: 100%;
+    grid-area: imagen1;
+    position: relative;
+    background-color: black;
+    border-radius: 5%;
+}
+
+.imagen1 img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5%;
+    opacity: 60%;
+}
+
+.imagen1 h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: var(--font-primary);
+    z-index: 2;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid white;
+}
+
+.imagen2{
+    height: 100%;
+    width: 100%;
+    grid-area: imagen2;
+    position: relative;
+    background-color: black;
+    border-radius: 5%;
+}
+
+.imagen2 img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5%;
+    opacity: 60%;
+}
+
+.imagen2 h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: var(--font-primary);
+    z-index: 2;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid white;
+}
+
+.imagen3{
+    height: 100%;
+    width: 100%;
+    grid-area: imagen3;
+    position: relative;
+    background-color: black;
+    border-radius: 5%;
+}
+
+.imagen3 img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5%;
+    opacity: 60%;
+}
+
+.imagen3 h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: var(--font-primary);
+    z-index: 2;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid white;
+}
+
+/*Fin CSS de las imagenes horizontales design, creation y photography*/
+
+/*Inicio CSS de la seccion About US*/
+
+.main{
+    grid-area: main;
+    display: flex;
+    margin-bottom: 0px;
+}
+
+.infoabout{
+    display: flex;
+    flex-direction: column;
+    background-color: #dfdfff;
+    height: 100%;
+
+    margin-bottom: 0px;
+}
+
+.infoabout h2{
+    color: #4845D2;
+    justify-content: left;
+    align-items: left;
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.infoabout p{
+    display: flex;
+    text-align: start;
+    color: black;
+    padding: 0;
+    margin: 140px 30px 20px 30px;
+}
+
+.imagenabout{
+    height: 100%;
+    width: 100%;
+}
+
+.imagenabout img{
+    height: 100%;
+    width: 100%;
+}
+
+.ulabou{
+    display: flex;
+    justify-content: left;
+    background-color: #dfdfff;
+    text-align: start;
+}
+
+.ulabou li{
+    justify-content: left;
+    text-align: start;
+}
+
+/*Fin CSS de la seccion About US*/
+/*Inicio de CSS de galeria de imagenes*/
+.gallery{
+    grid-area: gallery;
+    margin-top: 1000px;
+    display: grid;
+    gap: 15px;
+    margin: 30px;
+    grid-template-columns: 288px 288px 288px;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-areas:"img1 img2 img3 img3"
+                        "img1 img2 img5 img6"
+                        "img1 img4 img4 img6";
+}
+
+.img1{
+    grid-area: img1;
+    width: 100%;
+    height: 100%;
+}
+
+.img1 img{
+    width: 100%;
+    height: 100%;
+}
+
+.img2{
+    grid-area: img2;
+    width: 100%;
+    height: 100%;
+}
+
+.img2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.img3{
+    grid-area: img3;
+    width: 100%;
+    height: 100%;
+}
+
+.img3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.img4{
+    grid-area: img4;
+    width: 100%;
+    height: 100%;
+
+}
+
+.img4 img{
+    width: 100%;
+    height: 100%;
+}
+
+.img5{
+    grid-area: img5;
+    width: 100%;
+    height: 100%;
+}
+
+.img5 img{
+    width: 100%;
+    height: 100%;
+}
+
+.img6{
+    grid-area: img6;
+    width: 100%;
+    height: 100%;
+}
+
+.img6 img{
+    width: 100%;
+    height: 100%;
+}
+
+/*Fin de CSS de galeria de imagenes*/
+/*Inicio de CSS de la seccion Contest*/
+
+.contest{
+    grid-area: contest;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 288px 288px 288px 288px;
+    grid-template-rows: 200px 200px 200px 200px 200px;
+    grid-template-areas:"contesth contesth contesth contesth"
+                        "im1 im2 im3 im4"
+                        "im1 im2 im3 im4"
+                        "im5 im6 im7 im8"
+                        "im5 im6 im7 im8";
+}
+
+.contesth{
+    grid-area: contesth;
+    margin-bottom: 0;
+    margin-top: 150px;
+}
+
+.contestbutton a{
+    color: #6c6afd;
+    padding: 10px 30px 10px 30px;
+    border: 2px solid #6c6afd;
+}
+
+.im1{
+    border-radius: 5%;
+    grid-area: im1;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im1 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+    
+}
+
+.im1 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im2{
+    border-radius: 5%;
+    grid-area: im2;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im2 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im2 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im3{
+    border-radius: 5%;
+    grid-area: im3;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im3 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im3 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im4{
+    border-radius: 5%;
+    grid-area: im4;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im4 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im4 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im5{
+    border-radius: 5%;
+    grid-area: im5;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im5 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im5 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im6{
+    border-radius: 5%;
+    grid-area: im6;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im6 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im6 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im7{
+    border-radius: 5%;
+    grid-area: im7;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im7 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im7 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.im8{
+    border-radius: 5%;
+    grid-area: im8;
+    width: 100%;
+    height: 100%;
+    box-shadow: rgb(207, 207, 207) 2px 2px 2px 2px;
+}
+
+.im8 p{
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 10px;
+}
+
+.im8 img{
+    border-radius: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+/*Fin de CSS de la seccion Contest*/
+/*Inicio del Footer*/
+.footer{
+    grid-area: footer;
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-template-columns: 388px 388px 388px;
+    grid-template-areas: "logof links redes";
+    background-color: #9593ff;
+}
+
+.logof{
+    display: flex;
+    grid-area: logof;
+    width: 100%;
+    height: 100%;
+}
+
+.logof img{
+    width: 40%;
+    height: 20%;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.logof h3{
+    display: flex;
+    color: white;
+    margin-top: 20px;
+}
+
+.textof{
+    display: flex;
+    color: white;
+    margin-top: 60px;
+    position: absolute;
+}
+
+.links{
+    grid-area: links;
+    width: 100%;
+    height: 30%;
+}
+
+.links ul{
+    font-size: 10px;
+}
+
+.links li{
+    padding: 0px;
+    margin: 0px;
+}
+
+.redes{
+    grid-area: redes;
+    width: 100%;
+    height: 30%;
+}
+/*Fin del footer*/
+/*Fin del CSS*/
